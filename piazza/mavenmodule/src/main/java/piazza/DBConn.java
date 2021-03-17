@@ -13,10 +13,10 @@ public class DBConn {
             Class.forName("com.mysql.cj.jdbc.Driver");
             // Properties for user and password.
             Properties p = new Properties();
-            p.put("user", "myuser");
-            p.put("password", "mypassword");
+            p.put("user", "root");
+            p.put("password", "database123");
             //            conn = DriverManager.getConnection("jdbc:mgit pysql://mysql.ansatt.ntnu.no/sveinbra_ektdb?autoReconnect=true&useSSL=false",p);
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ekt?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false",p);
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/testDB?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false",p);
         } catch (Exception e)
         {
             throw new RuntimeException("Unable to connect", e);
