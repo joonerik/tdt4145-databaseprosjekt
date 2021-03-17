@@ -1,3 +1,5 @@
+package database-prosjekt.piazza;
+
 import java.sql.*;
 import java.util.Properties;
 
