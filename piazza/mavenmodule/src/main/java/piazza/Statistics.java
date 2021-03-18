@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Statistics {
 
-    public void getStatistics(Connection conn) throws SQLException {
+    public static void getStatistics(Connection conn) throws SQLException {
         String sql = "SELECT User1.mail AS username, COUNT(HasRead.mail) AS read1, created.createdNo " +
                 "FROM User1 LEFT OUTER JOIN HasRead USING(mail) " +
                 "LEFT OUTER JOIN (SELECT User1.mail, COUNT(Post.mail) AS createdNo " +

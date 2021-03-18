@@ -5,24 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Thread extends ActiveDomainObject {
-    private int courseId;
-    private int threadNo;
-    private String tag;
-    private String colorCode;
+    private final int courseId;
+    private final int threadNo;
+    private final String tag;
+    private final String colorCode;
 
     public Thread(int courseId, int threadNo, String tag, String colorCode) {
         this.courseId = courseId;
         this.threadNo = threadNo;
         this.tag = tag;
         this.colorCode = colorCode;
-    }
-
-    @Override
-    public void initialize(Connection conn) {
-    }
-
-    @Override
-    public void refresh(Connection conn) {
     }
 
     @Override

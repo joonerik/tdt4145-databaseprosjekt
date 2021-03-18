@@ -5,24 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ThreadInFolder extends ActiveDomainObject {
-    private int courseId;
-    private int threadNo;
-    private String foldername;
+    private final int courseId;
+    private final int threadNo;
+    private final String foldername;
 
     public ThreadInFolder(int courseId, int threadNo, String foldername) {
         this.courseId = courseId;
         this.threadNo = threadNo;
         this.foldername = foldername;
-    }
-
-    @Override
-    public void initialize(Connection conn) {
-
-    }
-
-    @Override
-    public void refresh(Connection conn) {
-
     }
 
     @Override

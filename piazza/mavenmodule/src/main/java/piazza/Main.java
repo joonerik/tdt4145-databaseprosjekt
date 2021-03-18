@@ -15,7 +15,7 @@ public class Main {
                     throw new NumberFormatException();
                 switch (useCaseNumber) {
                     case 1 -> controller.login("geu", "du");
-                    case 2 -> controller.createThread(1, 5, 1, "text", "anders@hotmail.com", "type", "color", "tag", "exam answers");
+                    case 2 -> controller.createThread(1, 5, 1, "text", "anders@hotmail.com", "color", "tag", "exam answers");
                     case 3 -> controller.createPost(1, 5, 2, "Dette er et instructor svar :)", "InstructorAnswer", "anders@hotmail.com");
                     case 4 -> controller.searchPosts("%WAL%");
                     case 5 -> controller.getStatistics();
