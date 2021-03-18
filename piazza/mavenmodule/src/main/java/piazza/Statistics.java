@@ -17,10 +17,12 @@ public class Statistics {
         try {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sql);
+            System.out.format("%32s%10s%16s", "User", "Has read", "Has created \n");
             while (rs.next()) {
-                String row = "User: " + rs.getString(1) + ", has read: " + rs.getInt(2)
-                        + ", has created: " + rs.getInt(3);
-                System.out.println(row);
+                System.out.format("%32s%10d%16s", rs.getString(1), rs.getInt(2), rs.getInt(3) + "\n");
+//                String row = "User: " + rs.getString(1) + ", has read: " + rs.getInt(2)
+//                        + ", has created: " + rs.getInt(3);
+//                System.out.println(row);
             }
         } catch (SQLException e) {
             System.out.println("Error occurred in the database: " + e);
