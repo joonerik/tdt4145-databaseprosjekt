@@ -10,6 +10,14 @@ public class Thread extends ActiveDomainObject {
     private final String tag;
     private final String colorCode;
 
+    /**
+     * Constructor for Thread.
+     *
+     * @param courseId the course id where the thread belongs.
+     * @param threadNo the threadNumber of the thread.
+     * @param tag the tag of the thread.
+     * @param colorCode the color code for the thread, e.g., instructor has answered.
+     */
     public Thread(int courseId, int threadNo, String tag, String colorCode) {
         this.courseId = courseId;
         this.threadNo = threadNo;

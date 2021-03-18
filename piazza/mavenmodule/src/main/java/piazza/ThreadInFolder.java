@@ -9,6 +9,13 @@ public class ThreadInFolder extends ActiveDomainObject {
     private final int threadNo;
     private final String foldername;
 
+    /**
+     * Constructor for ThreadInFolder.
+     *
+     * @param courseId the course id where the folder and thread belong.
+     * @param threadNo the threadNumber of the thread.
+     * @param foldername the name of the folder.
+     */
     public ThreadInFolder(int courseId, int threadNo, String foldername) {
         this.courseId = courseId;
         this.threadNo = threadNo;
