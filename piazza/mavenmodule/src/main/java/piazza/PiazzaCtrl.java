@@ -28,7 +28,7 @@ public class PiazzaCtrl extends DBConn {
      * @param postText the text of the original post.
      * @param mail the mail of the user publishing the thread.
      * @param colorCode the colorCode describing the thread.
-     * @param tag the tag of the thread, i.e question, announcement
+     * @param tag the tag of the thread, e.g., question, announcement
      * @param foldername the name of the folder where the thread is to be placed.
      */
     public void createThread(int courseId, int threadNo, int postNo, String postText, String mail,

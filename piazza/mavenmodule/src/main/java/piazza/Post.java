@@ -13,6 +13,16 @@ public class Post extends ActiveDomainObject {
     private final String postType;
     private final String mail;
 
+    /**
+     * Constructor for Post.
+     *
+     * @param courseId the course id where the thread belongs.
+     * @param threadNo the threadNumber of the thread.
+     * @param postNo the postNumber of the original post.
+     * @param postText the text of the original post.
+     * @param postType the type of post, e.g., OriginalPost, InstructorAnswer, etc.
+     * @param mail the creator of the post.
+     */
     public Post(int courseId, int threadNo, int postNo, String postText, String postType, String mail) {
         this.courseId = courseId;
         this.threadNo = threadNo;
