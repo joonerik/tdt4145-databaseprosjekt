@@ -1,0 +1,21 @@
+Usecase 1:
+SELECT * FROM USER1 WHERE Mail = "anders@hotmail.com" and UserPassword = "anders";
+
+Usecase 2:
+INSERT INTO Thread VALUES (1, 5, "Question", "red");
+INSERT INTO Folder VALUES (1, "Exam");
+INSERT INTO Post VALUES (1, 5, 1, "Give me WAL pls", "martin@hotmail.com", "OriginalPost");
+
+Usecase 3:
+INSERT INTO AttendingCourse VALUES (“anders@hotmail.com”, 1, “instructor”);
+INSERT INTO Post VALUES (1, 5, 2, “Wow, this was advanced..”, “anders@hotmail.com” , “InstructorAnswer”);
+
+Usecase 4:
+SELECT CourseID, ThreadNo, PostNo FROM Post WHERE Post.PostText LIKE "%WAL%";
+
+Usecase 5:
+SELECT User1.mail as User_name, COUNT(DISTINCT HasRead.mail) as read1, COUNT(DISTINCT Post.mail) as Created
+FROM User1 LEFT OUTER JOIN HasRead USING(mail) INNER JOIN Post USING(mail)
+GROUP BY User1.mail
+ORDER BY Read1 DESC;
+
