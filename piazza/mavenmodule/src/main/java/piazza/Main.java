@@ -1,10 +1,9 @@
 package piazza;
 
-import java.sql.*;
-
 public class Main {
     public static void main(String[] args) {
-        DBConn controller = new DBConn();
+        PiazzaCtrl controller = new PiazzaCtrl();
         controller.connect();
+        controller.login("anders@hotmail.com", "anders");
     }
 }

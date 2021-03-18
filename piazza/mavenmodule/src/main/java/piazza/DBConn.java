@@ -3,7 +3,7 @@ package piazza;
 import java.sql.*;
 import java.util.Properties;
 
-public class DBConn {
+public abstract class DBConn {
     protected Connection conn;
     public DBConn () {
     }
@@ -15,17 +15,8 @@ public class DBConn {
             p.put("user", "root");
             p.put("password", "database123");
             conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/database",p);
-
-            Statement stmt= conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from User1");
-            while (rs.next()) {
-                System.out.println(rs.getString(1));
-            }
-            conn.close();
-
-        } catch (Exception e)
-        {
-            throw new RuntimeException("Unable to connect", e);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to connect, with error: ", e);
         }
     }
 }
