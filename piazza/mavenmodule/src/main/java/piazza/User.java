@@ -5,9 +5,9 @@ import java.sql.*;
 public class User {
 
     /**
-     * The method is static due to not being for one specific user object, but for all. Logs the user in if the
-     * mail and the password matches a user in the database, if the information does not match it gives feedback about
-     * that.
+     * The method is static due to not being for one specific user object, but for all. User is logged in if the
+     * mail and the password matches an existing user in the database.
+     * If the information does not match it returns appropriate feedback.
      *
      * @param mail the mail corresponding to the user logging in.
      * @param password the password of the user logging in.

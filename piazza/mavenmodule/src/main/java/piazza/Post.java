@@ -45,7 +45,7 @@ public class Post extends ActiveDomainObject {
 
     /**
      * The method is static due to not being for one specific post object, but for all. It searches through all posts
-     * in the database, and for retrieves the id's connected to each post where the keyword parameter appears.
+     * in the database, and retrieves the id to each post where the post contains the keyword in its postText.
      *
      * @param keyword the keyword to search for in posts.
      * @param conn the connection instance connected to the database.

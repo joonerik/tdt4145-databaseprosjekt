@@ -5,7 +5,7 @@ import java.sql.*;
 public class Statistics {
 
     /**
-     * The method is static due to not being for one specific statistic object, but for all. The method retrieves
+     * The method is static due to not being for one specific statistics object, but for all. The method retrieves
      * statistics from the database about how many posts each user has read and created.
      *
      * @param conn the connection instance connected to the database.

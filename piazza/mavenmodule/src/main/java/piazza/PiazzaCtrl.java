@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public class PiazzaCtrl extends DBConn {
 
     /**
-     * Tries to log in a user, delegates the task to the User-class where the login method is implemented.
+     * Tries to log in a user, delegates the task to the User class where a static login method is implemented.
      *
      * @param mail the mail that the user provided.
      * @param password the password that the user provided.
@@ -19,7 +19,7 @@ public class PiazzaCtrl extends DBConn {
     }
 
     /**
-     * Creates a new thread, delegates the task to the Thread class, by creating an object with the provided parameters
+     * Creates a new thread, delegates the task to the Thread class, by creating an object with the provided arguments
      * and calling the save method on the object.
      *
      * @param courseId the course id where the thread belongs.
@@ -48,7 +48,7 @@ public class PiazzaCtrl extends DBConn {
     }
 
     /**
-     * Creates a new post, delegates the task to the Post class, by creating a post object with the provided parameters,
+     * Creates a new post, delegates the task to the Post class, by creating a post object with the provided arguments,
      * and calling the method save on the object.
      *
      * @param courseId the courseId where the post belongs.
@@ -69,7 +69,8 @@ public class PiazzaCtrl extends DBConn {
     }
 
     /**
-     * Searches for the keyword provided, and retrieved all the id's for posts containing it.
+     * Searches for the keyword provided, and retrieves all the id's for posts containing
+     * the keyword in its postText.
      *
      * @param keyword the keyword to be searched for.
      */
