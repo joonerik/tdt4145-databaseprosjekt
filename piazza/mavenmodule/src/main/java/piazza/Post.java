@@ -33,20 +33,16 @@ public class Post extends ActiveDomainObject {
     }
 
     @Override
-    public void save(Connection conn) {
+    public void save(Connection conn) throws SQLException {
         String createPostSql = "INSERT INTO Post VALUES (?, ?, ?, ?, ?, ?)";
 
-        try {
-            PreparedStatement preparedStatementThread = conn.prepareStatement(createPostSql);
-            preparedStatementThread.setInt(1, courseId);
-            preparedStatementThread.setInt(2, threadNo);
-            preparedStatementThread.setInt(3, postNo);
-            preparedStatementThread.setString(4, postText);
-            preparedStatementThread.setString(5, mail);
-            preparedStatementThread.setString(6, postType);
-            preparedStatementThread.executeUpdate();
-        } catch(SQLException e) {
-            System.out.println("An error occurred in the database " + e);
-        }
+        PreparedStatement preparedStatementThread = conn.prepareStatement(createPostSql);
+        preparedStatementThread.setInt(1, courseId);
+        preparedStatementThread.setInt(2, threadNo);
+        preparedStatementThread.setInt(3, postNo);
+        preparedStatementThread.setString(4, postText);
+        preparedStatementThread.setString(5, mail);
+        preparedStatementThread.setString(6, postType);
+        preparedStatementThread.executeUpdate();
     }
 }

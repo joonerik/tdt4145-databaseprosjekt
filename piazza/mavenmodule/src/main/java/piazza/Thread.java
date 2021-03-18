@@ -26,18 +26,13 @@ public class Thread extends ActiveDomainObject {
     }
 
     @Override
-    public void save(Connection conn) {
+    public void save(Connection conn) throws SQLException {
         String createThreadSql = "INSERT INTO Thread VALUES (?, ?, ?, ?)";
-
-        try {
-            PreparedStatement preparedStatementThread = conn.prepareStatement(createThreadSql);
-            preparedStatementThread.setInt(1, courseId);
-            preparedStatementThread.setInt(2, threadNo);
-            preparedStatementThread.setString(3, tag);
-            preparedStatementThread.setString(4, colorCode);
-            preparedStatementThread.executeUpdate();
-        } catch(SQLException e) {
-            System.out.println("An error occurred in the database " + e);
-        }
+        PreparedStatement preparedStatementThread = conn.prepareStatement(createThreadSql);
+        preparedStatementThread.setInt(1, courseId);
+        preparedStatementThread.setInt(2, threadNo);
+        preparedStatementThread.setString(3, tag);
+        preparedStatementThread.setString(4, colorCode);
+        preparedStatementThread.executeUpdate();
     }
 }

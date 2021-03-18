@@ -9,7 +9,11 @@ public class PiazzaCtrl extends DBConn {
     Statistics statistics = new Statistics();
 
     public void login(String mail, String password) {
-        user.login(mail, password, conn);
+        try {
+            user.login(mail, password, conn);
+        } catch (SQLException e) {
+            System.out.println("An error occurred in the database " + e);
+        }
     }
 
     public void createThread(int courseId, int threadNo, int postNo, String postText, String mail,
@@ -18,18 +22,24 @@ public class PiazzaCtrl extends DBConn {
         Post post = new Post(courseId, threadNo, postNo, postText, type, mail);
         ThreadInFolder threadInFolder = new ThreadInFolder(courseId, threadNo, foldername);
 
-        //Håndter exceptions fra de andre her slik at man kun gir en melding om
-        //publisert post dersom det faktsik gikk gjennom.
-        thread.save(conn);
-        post.save(conn);
-        threadInFolder.save(conn);
-        System.out.println("Published the new thread on piazza");
+        try {
+            thread.save(conn);
+            post.save(conn);
+            threadInFolder.save(conn);
+            System.out.println("Published the new thread on piazza");
+        } catch (SQLException e) {
+            System.out.println("An error occurred in the database " + e);
+        }
     }
 
     public void createPost(int courseId, int threadNo, int postNo, String postText, String type, String mail) {
         Post post = new Post(courseId, threadNo, postNo, postText, type, mail);
-        post.save(conn);
+        try {
+            post.save(conn);
         System.out.println("Published the new " + type + " on piazza");
+        } catch (SQLException e) {
+            System.out.println("An error occurred in the database " + e);
+        }
     }
 
     public void searchPosts(String keyword) {
@@ -39,6 +49,7 @@ public class PiazzaCtrl extends DBConn {
             preparedStatementThread.setString(1, keyword);
             ResultSet rs = preparedStatementThread.executeQuery();
             while (rs.next()) {
+                //FIXME formatering her.
                 System.out.println(rs.getInt(1) + " - " + rs.getInt(2) + " - " + rs.getInt(3));
             }
         } catch (SQLException e) {
@@ -47,7 +58,11 @@ public class PiazzaCtrl extends DBConn {
     }
 
     public void getStatistics() {
-        statistics.getStatistics(conn);
+        try {
+            statistics.getStatistics(conn);
+        } catch (SQLException e) {
+            System.out.println("An error occurred in the database " + e);
+        }
     }
 
 }
