@@ -22,6 +22,13 @@ public class Post extends ActiveDomainObject {
         this.mail = mail;
     }
 
+    /**
+     * Saves the post object to the database. The post is then linked to the thread which it belongs to, and is marked
+     * with a type corresponding to the type of post it is.
+     *
+     * @param conn the connection instance connected to the database.
+     * @throws SQLException if something goes wrong running the SQL command.
+     */
     @Override
     public void save(Connection conn) throws SQLException {
         String createPostSql = "INSERT INTO Post VALUES (?, ?, ?, ?, ?, ?)";
@@ -36,6 +43,13 @@ public class Post extends ActiveDomainObject {
         preparedStatementThread.executeUpdate();
     }
 
+    /**
+     * The method is static due to not being for one specific post object, but for all. It searches through all posts
+     * in the database, and for retrieves the id's connected to each post where the keyword parameter appears.
+     *
+     * @param keyword the keyword to search for in posts.
+     * @param conn the connection instance connected to the database.
+     */
     public static void searchPost(String keyword, Connection conn) {
         String sql = "SELECT CourseID, ThreadNo, PostNo FROM Post WHERE Post.PostText LIKE CONCAT('%', ?, '%')";
         try {

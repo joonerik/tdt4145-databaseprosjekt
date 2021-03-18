@@ -5,8 +5,7 @@ import java.util.Properties;
 
 public abstract class DBConn {
     protected Connection conn;
-    public DBConn () {
-    }
+
     public void connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

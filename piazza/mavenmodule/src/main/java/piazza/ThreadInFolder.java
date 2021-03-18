@@ -15,17 +15,20 @@ public class ThreadInFolder extends ActiveDomainObject {
         this.foldername = foldername;
     }
 
+    /**
+     * Saves the current threadInFolder object to the database. This links the thread to a folder, such that one
+     * can see which folders a thread lies in.
+     *
+     * @param conn the connection instance connected to the database.
+     * @throws SQLException if something goes wrong running the SQL command.
+     */
     @Override
-    public void save(Connection conn) {
-        try {
-            String sql = "INSERT INTO ThreadInFolder VALUES (?, ?, ?)";
-            PreparedStatement preparedStatementThread = conn.prepareStatement(sql);
-            preparedStatementThread.setInt(1, courseId);
-            preparedStatementThread.setInt(2, threadNo);
-            preparedStatementThread.setString(3, foldername);
-            preparedStatementThread.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("An error occured in the database " + e);
-        }
+    public void save(Connection conn) throws SQLException {
+        String sql = "INSERT INTO ThreadInFolder VALUES (?, ?, ?)";
+        PreparedStatement preparedStatementThread = conn.prepareStatement(sql);
+        preparedStatementThread.setInt(1, courseId);
+        preparedStatementThread.setInt(2, threadNo);
+        preparedStatementThread.setString(3, foldername);
+        preparedStatementThread.executeUpdate();
     }
 }

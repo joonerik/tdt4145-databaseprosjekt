@@ -4,6 +4,13 @@ import java.sql.*;
 
 public class Statistics {
 
+    /**
+     * The method is static due to not being for one specific statistic object, but for all. The method retrieves
+     * statistics from the database about how many posts each user has read and created.
+     *
+     * @param conn the connection instance connected to the database.
+     * @throws SQLException if something goes wrong running the SQL command.
+     */
     public static void getStatistics(Connection conn) throws SQLException {
         String sql = "SELECT User1.mail AS username, COUNT(HasRead.mail) AS read1, created.createdNo " +
                 "FROM User1 LEFT OUTER JOIN HasRead USING(mail) " +

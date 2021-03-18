@@ -17,6 +17,13 @@ public class Thread extends ActiveDomainObject {
         this.colorCode = colorCode;
     }
 
+    /**
+     * Saves the thread object to the database. This will create a thread such that it is possible to link other posts
+     * and followup discussions to it later on.
+     *
+     * @param conn the connection instance connected to the database.
+     * @throws SQLException if something goes wrong running the SQL command.
+     */
     @Override
     public void save(Connection conn) throws SQLException {
         String createThreadSql = "INSERT INTO Thread VALUES (?, ?, ?, ?)";
