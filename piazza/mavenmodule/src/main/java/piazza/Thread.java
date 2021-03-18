@@ -37,7 +37,7 @@ public class Thread extends ActiveDomainObject {
             preparedStatementThread.setString(4, colorCode);
             preparedStatementThread.executeUpdate();
         } catch(SQLException e) {
-            System.out.println("An error occured in the database " + e);
+            System.out.println("An error occurred in the database " + e);
         }
     }
 }
