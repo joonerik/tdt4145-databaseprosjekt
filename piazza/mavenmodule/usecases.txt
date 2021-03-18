@@ -4,6 +4,7 @@ SELECT * FROM USER1 WHERE Mail = "anders@hotmail.com" and UserPassword = "anders
 Usecase 2:
 INSERT INTO Thread VALUES (1, 5, "Question", "red");
 INSERT INTO Folder VALUES (1, "Exam");
+INSERT INTO ThreadInFolder VALUES (1, 5, "Exam");
 INSERT INTO Post VALUES (1, 5, 1, "Give me WAL pls", "martin@hotmail.com", "OriginalPost");
 
 Usecase 3:
