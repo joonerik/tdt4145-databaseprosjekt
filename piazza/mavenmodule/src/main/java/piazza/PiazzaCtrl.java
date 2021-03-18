@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class PiazzaCtrl extends DBConn {
     User user = new User();
+    Statistics statistics = new Statistics();
 
     public void login(String mail, String password) {
         user.login(mail, password, conn);
@@ -43,6 +44,10 @@ public class PiazzaCtrl extends DBConn {
         } catch (SQLException e) {
             System.out.println("An error occurred in the database " + e);
         }
+    }
+
+    public void getStatistics() {
+        statistics.getStatistics(conn);
     }
 
 }
